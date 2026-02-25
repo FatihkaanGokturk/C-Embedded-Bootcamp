@@ -1,5 +1,5 @@
 /**
- * @file    scrabble.c
+ * @file    readability.c
  * @author  Fatih Kaan GÖKTÜRK
  * @date    24 Feb 2026
  * @brief  Text Readability Analyzer (Coleman-Liau Index)
