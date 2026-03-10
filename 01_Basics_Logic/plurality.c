@@ -1,28 +1,39 @@
+/**
+ * @file plurality.c
+ * @author Fatih Kaan GÖKTÜRK
+ * @date 2026-03-10
+ * @brief Checks if input matches a valid candidate and increments their vote total.
+ * @param name Pointer to the character array containing the voter's input.
+ * @return true if candidate exists, false if candidate is invalid.
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+/**
+ * @def MAXLEN, MAX
+ * @brief Maximum allowed buffer size for standard input allocation.
+ */
 #define MAXLEN 100
-
-// Max number of candidates
 #define MAX 9
 
-// Candidates have name and vote count
+/**
+ * @struct candidate
+ * @brief Container associating a candidate's name pointer with their active vote tally.
+ */
 typedef struct
 {
     char *name;
     int votes;
 } candidate;
 
-// Array of candidates
 candidate candidates[MAX];
 
-// Number of candidates
 int candidate_count;
 
-// Function prototypes
+
 bool vote(char *name);
 void print_winner(void);
-
 int main(int argc, char *argv[])
 {
     // Check for invalid usage
@@ -32,7 +43,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Populate array of candidates
     candidate_count = argc - 1;
     if (candidate_count > MAX)
     {
@@ -48,24 +58,23 @@ int main(int argc, char *argv[])
     int voter_count; 
     printf("Number of voters: ");
     scanf("%d",&voter_count);
-    // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
         char name[MAXLEN] ;
         printf("Vote: ");
         scanf("%99s",name);
-        // Check for invalid vote
+    
         if (!vote(name))
         {
             printf("Invalid vote.\n");
         }
     }
 
-    // Display winner of election
     print_winner();
 }
-
-// Update vote totals given a new vote
+/**
+ * Function that checks if input is valid candidate or not using strcmp function
+ */
 bool vote(char *name)
 {
     for(int i=0;i<candidate_count;i++){
@@ -77,7 +86,12 @@ bool vote(char *name)
 }
 return false;
 }
-// Print the winner (or winners) of the election
+
+
+
+/**
+ * @brief Executes a two-pass linear search to find and print the winner(s) without O(N log N) sorting overhead.
+ */
 void print_winner(void)
 {
     int max_voted=0;
