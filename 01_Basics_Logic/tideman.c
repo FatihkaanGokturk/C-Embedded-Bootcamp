@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
             {
                 printf("Invalid vote.\n");
                 return 3;
-            }
+            } 
         }
 
         record_preferences(ranks);
@@ -181,11 +181,28 @@ void print_winner(void)
         }
         }
         if(is_winner==true)
+<<<<<<< HEAD:01_Basics_Logic/tideman.c
             printf("%s\n",locked[i]);
+=======
+            printf("%s\n",candidates[i]);
+            return;
+>>>>>>> 3662cd2 (docs: add professional Doxygen documentation and memory optimizations):tideman.c
     }
 
     return;
 }
+<<<<<<< HEAD:01_Basics_Logic/tideman.c
+=======
+/**
+ * @brief Recursive Depth-First Search (DFS) to detect cycles in the graph.
+ * * Acts as a scout to trace pathways through the locked matrix. It starts at the 
+ * loser of a potential pair and attempts to find any existing path back to the winner.
+ * * @param current_candidate The node currently being investigated by the search.
+ * @param target_candidate The original winner we are checking a path against.
+ * @return true if a path exists from the current_candidate back to the target_candidate.
+ * @return false if the search hits a dead end (no cycle found)..
+ */
+>>>>>>> 3662cd2 (docs: add professional Doxygen documentation and memory optimizations):tideman.c
 bool is_cycle(uint8_t current_candidate, uint8_t target_candidate ){
      if(current_candidate==target_candidate)
         return true;
