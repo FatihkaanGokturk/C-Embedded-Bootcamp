@@ -1,0 +1,7 @@
+# Ignore compiled C binaries
+*.exe
+*.o
+
+# Ignore VS Code temporary runner files
+tempCodeRunnerFile*
+.vscode/
