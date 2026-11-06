@@ -17,9 +17,11 @@ void Print_Binary(uint16_t reg) {
 int main(void) {
     printf("--- Commit 1: Boot ---\n");
     Print_Binary(MOTOR_CONFIG);
+    //Reversed
     MOTOR_CONFIG |= (1<<3);  
     Print_Binary(MOTOR_CONFIG);
-    // Add future commit code below here...
-
+    // Speed ID
+    MOTOR_CONFIG |= (5<<0) |(9<<4);
+    Print_Binary(MOTOR_CONFIG);
     return 0;
 }
