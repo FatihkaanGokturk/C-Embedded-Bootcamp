@@ -23,5 +23,12 @@ int main(void) {
     // Speed ID
     MOTOR_CONFIG |= (5<<0) |(9<<4);
     Print_Binary(MOTOR_CONFIG);
+
+    //Extract data  
+    MOTOR_CONFIG |= (0xAB << 8);
+    uint8_t current_fault =(MOTOR_CONFIG>>8);
+    printf("Fault Code: 0x%02X\n", current_fault);
+    //clearing bits
+    MOTOR_CONFIG &=~((1U<<0) |(1U<<2)|(1U<<1));
     return 0;
 }
