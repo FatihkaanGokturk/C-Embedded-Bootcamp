@@ -17,7 +17,8 @@ void Print_Binary(uint16_t reg) {
 int main(void) {
     printf("--- Commit 1: Boot ---\n");
     Print_Binary(MOTOR_CONFIG);
-    
+    MOTOR_CONFIG |= (1<<3);  
+    Print_Binary(MOTOR_CONFIG);
     // Add future commit code below here...
 
     return 0;
