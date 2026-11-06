@@ -1,3 +1,10 @@
+/**
+ * @file Motor_Config.c
+ * @author Fatih Kaan GÖKTÜRK
+ * @date 2026-11-06
+ * @brief Demonstrate bitwise register manipulation for motor control,
+ *        including setting, packing, extracting, clearing, and toggling bits.
+ */
 #include <stdio.h>
 #include <stdint.h>
 
